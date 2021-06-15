@@ -4,6 +4,7 @@ const search = document.getElementById('search'),
     mealsEl = document.getElementById('meals'),
     resultHeading = document.getElementById('result-heading'),
     single_MealEl = document.getElementById('single-meal');
+
     
 // search meals and fetch from API
 function searchMeal(e){
@@ -29,11 +30,12 @@ function searchMeal(e){
                 resultHeading.innerHTML = `<h2>There are no search results for "${term}"</h2>`;
                 mealsEl.innerHTML = '';
             } else{
+                console.log(data.meals[0].strMeal);
                 mealsEl.innerHTML = data.meals.map(meal => `
                     <div class="meal">
                         <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
                         <div class="meal-info" data-mealID="${meal.idMeal}">
-                            <h3>${meal.strMeal}</h3>
+                            <h3><a href="#target" id="link">${meal.strMeal}</a></h3>
                         </div>
                     </div>
                 `)
@@ -86,7 +88,7 @@ function addMealToDom(meal){
     }
     single_MealEl.innerHTML = `
         <div class="single-meal">
-            <h1>${meal.strMeal}</h1>
+            <h1 id="target">${meal.strMeal}</h1>
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
             <div class="single-meal-info">
                 ${meal.strCategory ? `<p>${meal.strCategory}</p>` : '' }
@@ -102,10 +104,6 @@ function addMealToDom(meal){
         </div>
     `;
 }
-
-
-
-
 
 
 // Event Listner
