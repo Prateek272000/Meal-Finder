@@ -132,3 +132,31 @@ input[type="text"]:focus {
   margin: 0 5px 5px 0;
   display: inline-block;
 }
+
+#link {
+  color: white;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .meals {
+    grid-template-columns: 1fr;
+  }
+  .single-meal img {
+    width: 200px;
+  }
+  .single-meal {
+    width: 90%;
+  }
+  .main {
+    width: 100%;
+  }
+  .main p {
+    text-align: center;
+    position: relative;
+    margin: 0;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    width: 100%;
+  }
+}
